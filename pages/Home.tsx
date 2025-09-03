@@ -1,14 +1,14 @@
+import BottomNav from "@/components/BottomNav";
 import React from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Image,
-  TouchableOpacity,
+    FlatList,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import BottomNav from "@/components/BottomNav";
 
 // ✅ Local Ads Data with require()
 const ads = [
@@ -46,7 +46,7 @@ const ads = [
   },
 ];
 
-// ✅ Single Ad Car
+// ✅ Single Ad Card
 const AdCard = ({ item }: { item: typeof ads[0] }) => (
   <TouchableOpacity style={styles.card}>
     <Image source={item.image} style={styles.image} />
@@ -104,12 +104,7 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
       />
 
-      {/* ✅ Floating Post Ad Button */}
-      <TouchableOpacity style={styles.fab}>
-        <Icon name="add" size={28} color="#fff" />
-      </TouchableOpacity>
-
-      {/* ✅ Bottom Navigation */}
+      {/* ✅ Bottom Navigation (Only) */}
       <BottomNav />
     </View>
   );
@@ -211,18 +206,5 @@ const styles = StyleSheet.create({
   time: {
     fontSize: 10,
     color: "#888",
-  },
-  fab: {
-    position: "absolute",
-    bottom: 60,
-    left: "50%",
-    marginLeft: -25,
-    backgroundColor: "#fbc02d", // ✅ Yellow FAB
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
   },
 });
