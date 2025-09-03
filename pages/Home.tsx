@@ -67,21 +67,30 @@ const AdCard = ({ item }: { item: typeof ads[0] }) => (
 export default function Home() {
   return (
     <View style={styles.container}>
-      {/* ✅ Navbar */}
+      {/* Navbar */}
       <View style={styles.navbar}>
-        <View style={styles.logoContainer}>
-          <Image
-            source={require("../assets/images/ikman-logo.png")}
-            style={styles.logoImage}
-          />
+        {/* Left: icon + ikman text (row) then result count (below) */}
+        <View style={styles.leftHeader}>
+          <View style={styles.brandRow}>
+            <Image
+              // use your small icon image here; if your ikman-logo.png is the full logo,
+              // replace with a smaller icon file (e.g. ikman-icon.png)
+              source={require("../assets/images/ikman-logo.png")}
+              style={styles.icon}
+            />
+            <Text style={styles.logoText}>ikman</Text>
+          </View>
           <Text style={styles.resultCount}>380739 results</Text>
         </View>
-        <TouchableOpacity>
-          <Text style={styles.saveSearch}>Save search</Text>
+
+        {/* Right: Save search */}
+        <TouchableOpacity style={styles.saveSearchBtn}>
+          <Icon name="bookmark-outline" size={18} color="#fff" />
+          <Text style={styles.saveSearchText}> Save search</Text>
         </TouchableOpacity>
       </View>
 
-      {/* ✅ Filter Row */}
+      {/* Filter Row */}
       <View style={styles.filterBar}>
         <TouchableOpacity style={styles.filterButton}>
           <Icon name="location-outline" size={18} color="#0a9d58" />
@@ -97,7 +106,7 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      {/* ✅ Ads Grid */}
+      {/* Ads Grid */}
       <FlatList
         data={ads}
         renderItem={({ item }) => <AdCard item={item} />}
@@ -107,44 +116,65 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
       />
 
-      {/* ✅ Bottom Navigation */}
+      {/* Bottom Navigation */}
       <BottomNav />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f8f8f8",
-  },
+  container: { flex: 1, backgroundColor: "#f8f8f8" },
+
   navbar: {
+    backgroundColor: "#0a9d58",
+    paddingHorizontal: 12,
+    paddingTop: 12,
+    paddingBottom: 10,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    backgroundColor: "#0a9d58",
-  },
-  logoContainer: {
-    flexDirection: "column",
     alignItems: "flex-start",
   },
-  logoImage: {
-    width: 80,
-    height: 25,
-    resizeMode: "contain",
-    marginBottom: 2,
+
+  leftHeader: {
+    flexDirection: "column",
+    justifyContent: "center",
   },
+
+  brandRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  icon: {
+    width: 22,
+    height: 22,
+    resizeMode: "contain",
+    marginRight: 8,
+  },
+
+  logoText: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#fff",
+  },
+
   resultCount: {
     fontSize: 12,
     color: "#fff",
+    marginTop: 2,
   },
-  saveSearch: {
-    fontSize: 14,
+
+  saveSearchBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 4,
+  },
+
+  saveSearchText: {
     color: "#fff",
-    fontWeight: "500",
+    fontSize: 14,
   },
+
   filterBar: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -153,20 +183,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
   },
-  filterButton: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  filterText: {
-    fontSize: 14,
-    fontWeight: "500",
-    color: "#0a9d58",
-    marginLeft: 4,
-  },
-  grid: {
-    padding: 8,
-    paddingBottom: 70,
-  },
+
+  filterButton: { flexDirection: "row", alignItems: "center" },
+  filterText: { fontSize: 14, fontWeight: "500", color: "#0a9d58", marginLeft: 4 },
+
+  grid: { padding: 8, paddingBottom: 70 },
+
   card: {
     flex: 1,
     backgroundColor: "#fff",
@@ -175,27 +197,12 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     elevation: 3,
   },
-  image: {
-    width: "100%",
-    height: 120,
-    resizeMode: "cover",
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: "600",
-    marginBottom: 4,
-  },
-  price: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "green",
-    marginBottom: 4,
-  },
-  badges: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 4,
-  },
+
+  image: { width: "100%", height: 120, resizeMode: "cover" },
+  title: { fontSize: 14, fontWeight: "600", marginBottom: 4 },
+  price: { fontSize: 14, fontWeight: "bold", color: "green", marginBottom: 4 },
+  badges: { flexDirection: "row", alignItems: "center", marginBottom: 4 },
+
   badge: {
     backgroundColor: "gold",
     color: "#000",
@@ -206,13 +213,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginRight: 6,
   },
-  seller: {
-    fontSize: 10,
-    color: "#007BFF",
-    fontWeight: "600",
-  },
-  time: {
-    fontSize: 10,
-    color: "#888",
-  },
+
+  seller: { fontSize: 10, color: "#007BFF", fontWeight: "600" },
+  time: { fontSize: 10, color: "#888" },
 });
