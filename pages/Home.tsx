@@ -1,14 +1,14 @@
-import BottomNav from "@/components/BottomNav";
 import React from "react";
 import {
-    FlatList,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import BottomNav from "@/components/BottomNav";
 
 // ✅ Local Ads Data with require()
 const ads = [
@@ -69,8 +69,11 @@ export default function Home() {
     <View style={styles.container}>
       {/* ✅ Navbar */}
       <View style={styles.navbar}>
-        <View>
-          <Text style={styles.logo}>ikman</Text>
+        <View style={styles.logoContainer}>
+          <Image
+            source={require("../assets/images/ikman-logo.png")}
+            style={styles.logoImage}
+          />
           <Text style={styles.resultCount}>380739 results</Text>
         </View>
         <TouchableOpacity>
@@ -104,7 +107,7 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
       />
 
-      {/* ✅ Bottom Navigation (Only) */}
+      {/* ✅ Bottom Navigation */}
       <BottomNav />
     </View>
   );
@@ -121,12 +124,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 12,
     paddingHorizontal: 12,
-    backgroundColor: "#0a9d58", // ✅ Green header
+    backgroundColor: "#0a9d58",
   },
-  logo: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#fff",
+  logoContainer: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  logoImage: {
+    width: 80,
+    height: 25,
+    resizeMode: "contain",
+    marginBottom: 2,
   },
   resultCount: {
     fontSize: 12,
