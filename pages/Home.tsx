@@ -46,7 +46,7 @@ const ads = [
   },
 ];
 
-// ✅ Single Ad Card
+// ✅ Single Ad Car
 const AdCard = ({ item }: { item: typeof ads[0] }) => (
   <TouchableOpacity style={styles.card}>
     <Image source={item.image} style={styles.image} />
