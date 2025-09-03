@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     bottom: 60,
     left: "50%",
     marginLeft: -25,
-    backgroundColor: "#fbc02d", // ✅ Yellow FAB
+    backgroundColor: "#fbc02d", // ✅ Yellow FABi
     width: 50,
     height: 50,
     borderRadius: 25,
