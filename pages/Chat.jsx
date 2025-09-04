@@ -10,8 +10,8 @@ export default function Chat() {
         <Text style={styles.headerText}>My Chats</Text>
       </View>
 
-      {/* Full Grey Box Area */}
-      <View style={styles.fullGreyBox}>
+      {/* Top White Area with Image and Buttons */}
+      <View style={styles.topWhiteArea}>
         <Image
           source={require("../assets/images/no-chat.png")}
           style={styles.image}
@@ -31,6 +31,9 @@ export default function Chat() {
         </TouchableOpacity>
       </View>
 
+      {/* Full Grey Box Below Buttons */}
+      <View style={styles.greyBox} />
+
       {/* Bottom Navigation */}
       <BottomNav />
     </View>
@@ -48,12 +51,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
-  fullGreyBox: {
-    flex: 1,
-    backgroundColor: "#e0e0e0", // Full grey background
-    justifyContent: "center",
+  topWhiteArea: {
+    backgroundColor: "#fff",
+    justifyContent: "flex-start",
     alignItems: "center",
     paddingHorizontal: 20,
+    paddingVertical: 20,
   },
   image: {
     width: 120,
@@ -74,7 +77,9 @@ const styles = StyleSheet.create({
   },
   browseButton: {
     width: "100%",
-    backgroundColor: "#fff",
+    backgroundColor: "#f0f0f0",
+    borderWidth: 1,
+    borderColor: "#555",
     paddingVertical: 12,
     borderRadius: 5,
     marginBottom: 10,
@@ -91,10 +96,15 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 5,
     alignItems: "center",
+    marginBottom: 10,
   },
   postButtonText: {
-    color: "brown",
+    color: "#555",
     fontSize: 14,
     fontWeight: "bold",
+  },
+  greyBox: {
+    flex: 1, // Fills remaining space
+    backgroundColor: "#e0e0e0",
   },
 });
