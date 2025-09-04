@@ -12,7 +12,6 @@ export default function Chat() {
 
       {/* No Conversations */}
       <View style={styles.noChatContainer}>
-        {/* Local image */}
         <Image
           source={require("../assets/images/no-chat.png")}
           style={styles.image}
@@ -40,7 +39,7 @@ export default function Chat() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#22A519",
+    backgroundColor: "#0a9d58", // ✅ Only header green
     paddingVertical: 15,
     paddingHorizontal: 16,
   },

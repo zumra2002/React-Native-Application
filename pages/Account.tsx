@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import BottomNav from "@/components/BottomNav"; // ✅ Import BottomNav
+import BottomNav from "@/components/BottomNav";
 
 export default function Account() {
   return (
@@ -9,7 +9,7 @@ export default function Account() {
       {/* Header */}
       <View
         style={{
-          backgroundColor: "#22A519", // Ikman green
+          backgroundColor: "#0a9d58", // ✅ Only header green
           paddingVertical: 15,
           paddingHorizontal: 16,
           flexDirection: "row",
@@ -54,10 +54,10 @@ export default function Account() {
             <Icon
               name={item.icon}
               size={20}
-              color="#555"
+              color="#555" // Default icon color
               style={{ marginRight: 10 }}
             />
-            <Text style={{ fontSize: 15 }}>{item.label}</Text>
+            <Text style={{ fontSize: 15, color: "#333" }}>{item.label}</Text>
           </TouchableOpacity>
         ))}
 
@@ -72,14 +72,14 @@ export default function Account() {
           <Icon
             name="power-outline"
             size={20}
-            color="#555"
+            color="#555" // Default logout icon color
             style={{ marginRight: 10 }}
           />
-          <Text style={{ fontSize: 15 }}>Log out</Text>
+          <Text style={{ fontSize: 15, color: "#333" }}>Log out</Text>
         </TouchableOpacity>
       </ScrollView>
 
-      {/* ✅ Bottom Navigation */}
+      {/* Bottom Navigation */}
       <BottomNav />
     </View>
   );
