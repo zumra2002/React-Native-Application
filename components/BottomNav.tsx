@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { RootStackParamList } from "@/app/index";
@@ -8,64 +8,91 @@ export default function BottomNav() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-around",
-        paddingVertical: 10,
-        borderTopWidth: 1,
-        borderTopColor: "#ddd",
-        backgroundColor: "#fff",
-      }}
-    >
+    <View style={styles.container}>
       {/* Home */}
-      <TouchableOpacity
-        style={{ alignItems: "center" }}
-        onPress={() => navigation.navigate("Home")} // 👈 Home screen
-      >
+      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Home")}>
         <Icon name="home-outline" size={24} />
-        <Text>Home</Text>
+        <Text style={styles.label}>Home</Text>
       </TouchableOpacity>
 
-      {/* Search → Category page */}
-      <TouchableOpacity
-        style={{ alignItems: "center" }}
-        onPress={() => navigation.navigate("Category")} // 👈 now goes to Category
-      >
+      {/* Search */}
+      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Category")}>
         <Icon name="search-outline" size={24} />
-        <Text>Search</Text>
+        <Text style={styles.label}>Search</Text>
       </TouchableOpacity>
 
-      {/* Add / Post Ad */}
-      <TouchableOpacity
-        style={{
-          backgroundColor: "orange",
-          borderRadius: 40,
-          padding: 12,
-          marginTop: -20,
-        }}
-        onPress={() => navigation.navigate("Postadd")}
-      >
-        <Icon name="add" size={28} color="#fff" />
-      </TouchableOpacity>
+      {/* Post Ad */}
+      <View style={styles.postAdWrapper}>
+        <TouchableOpacity
+          style={styles.postAdOuter}
+          onPress={() => navigation.navigate("Postadd")}
+        >
+          <View style={styles.postAdInner}>
+            <Icon name="add" size={30} color="#FFC107" /> 
+          </View>
+        </TouchableOpacity>
+        <Text style={styles.postAdLabel}>Post ad</Text>
+      </View>
 
       {/* Chat */}
-      <TouchableOpacity
-        style={{ alignItems: "center" }}
-        onPress={() => navigation.navigate("Chat")}
-      >
+      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Chat")}>
         <Icon name="chatbubble-outline" size={24} />
-        <Text>Chat</Text>
+        <Text style={styles.label}>Chat</Text>
       </TouchableOpacity>
 
       {/* Account */}
-      <TouchableOpacity
-        style={{ alignItems: "center" }}
-        onPress={() => navigation.navigate("Account")}
-      >
+      <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Account")}>
         <Icon name="person-outline" size={24} />
-        <Text>Account</Text>
+        <Text style={styles.label}>Account</Text>
       </TouchableOpacity>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: "#ddd",
+    backgroundColor: "#fff",
+  },
+  iconContainer: {
+    alignItems: "center",
+  },
+  label: {
+    fontSize: 12,
+    marginTop: 2,
+  },
+  postAdWrapper: {
+    alignItems: "center",
+    marginTop: -30, 
+  },
+  postAdOuter: {
+    backgroundColor: "#FFC107", // Yellow outer circle
+    borderRadius: 50,
+    width: 70,
+    height: 70,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 6,
+  },
+  postAdInner: {
+    backgroundColor: "#5D4037", // Brown inner circle
+    borderRadius: 40,
+    width: 40,   // smaller size (was 50)
+    height: 40,  // smaller size (was 50)
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  postAdLabel: {
+    fontSize: 12,
+    marginTop: 6,
+    color: "#000",
+  },
+});
