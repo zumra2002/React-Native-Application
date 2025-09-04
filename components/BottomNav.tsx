@@ -1,24 +1,37 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { useNavigation, useRoute, NavigationProp } from "@react-navigation/native";
 import { RootStackParamList } from "@/app/index";
 
 export default function BottomNav() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const route = useRoute();
+
+  const getColor = (tabName: keyof RootStackParamList) => {
+    return route.name === tabName ? "#0a9d58" : "#808080"; // green for active, grey for inactive
+  };
+
+  const getLabelStyle = (tabName: keyof RootStackParamList) => {
+    return {
+      fontSize: 12,
+      marginTop: 2,
+      color: route.name === tabName ? "#0a9d58" : "#808080",
+    };
+  };
 
   return (
     <View style={styles.container}>
       {/* Home */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Home")}>
-        <Icon name="home" size={24} color="#808080" />
-        <Text style={styles.label}>Home</Text>
+        <Icon name="home" size={24} color={getColor("Home")} />
+        <Text style={getLabelStyle("Home")}>Home</Text>
       </TouchableOpacity>
 
       {/* Search */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Category")}>
-        <Icon name="search" size={24} color="#808080" />
-        <Text style={styles.label}>Search</Text>
+        <Icon name="search" size={24} color={getColor("Category")} />
+        <Text style={getLabelStyle("Category")}>Search</Text>
       </TouchableOpacity>
 
       {/* Post Ad */}
@@ -36,14 +49,14 @@ export default function BottomNav() {
 
       {/* Chat */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Chat")}>
-        <Icon name="chatbubble" size={24} color="#808080" />
-        <Text style={styles.label}>Chat</Text>
+        <Icon name="chatbubble" size={24} color={getColor("Chat")} />
+        <Text style={getLabelStyle("Chat")}>Chat</Text>
       </TouchableOpacity>
 
       {/* Account */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Account")}>
-        <Icon name="person" size={24} color="#808080" />
-        <Text style={styles.label}>Account</Text>
+        <Icon name="person" size={24} color={getColor("Account")} />
+        <Text style={getLabelStyle("Account")}>Account</Text>
       </TouchableOpacity>
     </View>
   );
@@ -61,17 +74,12 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignItems: "center",
   },
-  label: {
-    fontSize: 12,
-    marginTop: 2,
-    color: "#808080", // grey text for all except Post Ad
-  },
   postAdWrapper: {
     alignItems: "center",
     marginTop: -30, 
   },
   postAdOuter: {
-    backgroundColor: "#FFC107", // Yellow outer circle
+    backgroundColor: "#FFC107",
     borderRadius: 50,
     width: 70,
     height: 70,
@@ -84,7 +92,7 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   postAdInner: {
-    backgroundColor: "#5D4037", // Brown inner circle
+    backgroundColor: "#5D4037",
     borderRadius: 40,
     width: 40,
     height: 40,
