@@ -70,12 +70,13 @@ export default function Category() {
       {/* Header with search */}
       <View
         style={{
-          backgroundColor: "#0a9d58", // ✅ Changed to ikman.lk green
+          backgroundColor: "#0a9d58", // Ikman.lk green
           paddingHorizontal: 16,
           paddingTop: 35,
           paddingBottom: 20,
         }}
       >
+        {/* Search Bar */}
         <View
           style={{
             flexDirection: "row",
@@ -87,11 +88,12 @@ export default function Category() {
         >
           <TextInput
             placeholder="What are you looking for?"
-            style={{ flex: 1, height: 40, paddingHorizontal: 10 }}
+            placeholderTextColor="#808080" // Grey placeholder
+            style={{ flex: 1, height: 40, paddingHorizontal: 10, color: "#333" }} // Typed text dark grey
           />
           <TouchableOpacity
             style={{
-              backgroundColor: "yellow", // ✅ Yellow circle (as in ikman.lk)
+              backgroundColor: "yellow", // Yellow circle
               borderRadius: 50,
               padding: 6,
             }}
@@ -101,12 +103,20 @@ export default function Category() {
         </View>
 
         {/* Location Row */}
-        <View style={{ flexDirection: "row", marginTop: 12 }}>
-          <Text style={{ color: "#fff", fontSize: 14 }}>All of Sri Lanka </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            marginTop: 12,
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Icon name="location-sharp" size={16} color="#4CAF50" style={{ marginRight: 4 }} /> {/* Green icon */}
+            <Text style={{ color: "#000", fontSize: 14 }}>All of Sri Lanka </Text> {/* Black text */}
+          </View>
           <TouchableOpacity onPress={() => console.log("Change location pressed")}>
-            <Text style={{ color: "#fff", fontSize: 14, textDecorationLine: "underline" }}>
-              Change location
-            </Text>
+            <Text style={{ color: "#00BFFF", fontSize: 14, textDecorationLine: "underline" }}>Change location</Text> {/* Sky blue text */}
           </TouchableOpacity>
         </View>
       </View>
