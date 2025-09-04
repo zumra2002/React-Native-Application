@@ -70,7 +70,7 @@ export default function Category() {
       {/* Header with search */}
       <View
         style={{
-          backgroundColor: "#22A519", // ✅ Ikman.lk green
+          backgroundColor: "#0a9d58", // ✅ Changed to ikman.lk green
           paddingHorizontal: 16,
           paddingTop: 35,
           paddingBottom: 20,
@@ -91,12 +91,12 @@ export default function Category() {
           />
           <TouchableOpacity
             style={{
-              backgroundColor: "yellow", // ✅ Yellow circle
+              backgroundColor: "yellow", // ✅ Yellow circle (as in ikman.lk)
               borderRadius: 50,
               padding: 6,
             }}
           >
-            <Icon name="search" size={20} color="brown" /> 
+            <Icon name="search" size={20} color="brown" />
           </TouchableOpacity>
         </View>
 
