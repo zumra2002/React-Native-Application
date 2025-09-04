@@ -4,14 +4,14 @@ import BottomNav from "@/components/BottomNav";
 
 export default function Chat() {
   return (
-    <View style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>My Chats</Text>
       </View>
 
-      {/* No Conversations */}
-      <View style={styles.noChatContainer}>
+      {/* Full Grey Box Area */}
+      <View style={styles.fullGreyBox}>
         <Image
           source={require("../assets/images/no-chat.png")}
           style={styles.image}
@@ -39,7 +39,7 @@ export default function Chat() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#0a9d58", // ✅ Only header green
+    backgroundColor: "#0a9d58",
     paddingVertical: 15,
     paddingHorizontal: 16,
   },
@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
-  noChatContainer: {
+  fullGreyBox: {
     flex: 1,
+    backgroundColor: "#e0e0e0", // Full grey background
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 8,
+    color: "#000",
   },
   subtitle: {
     fontSize: 14,
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
   },
   browseButton: {
     width: "100%",
-    backgroundColor: "#e0e0e0",
+    backgroundColor: "#fff",
     paddingVertical: 12,
     borderRadius: 5,
     marginBottom: 10,
