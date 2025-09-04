@@ -11,13 +11,13 @@ export default function BottomNav() {
     <View style={styles.container}>
       {/* Home */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Home")}>
-        <Icon name="home-outline" size={24} />
+        <Icon name="home" size={24} color="#808080" />
         <Text style={styles.label}>Home</Text>
       </TouchableOpacity>
 
       {/* Search */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Category")}>
-        <Icon name="search-outline" size={24} />
+        <Icon name="search" size={24} color="#808080" />
         <Text style={styles.label}>Search</Text>
       </TouchableOpacity>
 
@@ -36,13 +36,13 @@ export default function BottomNav() {
 
       {/* Chat */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Chat")}>
-        <Icon name="chatbubble-outline" size={24} />
+        <Icon name="chatbubble" size={24} color="#808080" />
         <Text style={styles.label}>Chat</Text>
       </TouchableOpacity>
 
       {/* Account */}
       <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate("Account")}>
-        <Icon name="person-outline" size={24} />
+        <Icon name="person" size={24} color="#808080" />
         <Text style={styles.label}>Account</Text>
       </TouchableOpacity>
     </View>
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     marginTop: 2,
+    color: "#808080", // grey text for all except Post Ad
   },
   postAdWrapper: {
     alignItems: "center",
@@ -85,8 +86,8 @@ const styles = StyleSheet.create({
   postAdInner: {
     backgroundColor: "#5D4037", // Brown inner circle
     borderRadius: 40,
-    width: 40,   // smaller size (was 50)
-    height: 40,  // smaller size (was 50)
+    width: 40,
+    height: 40,
     justifyContent: "center",
     alignItems: "center",
   },
