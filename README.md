@@ -1,3 +1,8 @@
+![home page](https://github.com/user-attachments/assets/9ee19374-0e7b-4368-bf79-85774f6f6622)
+![category page](https://github.com/user-attachments/assets/82c9c1af-3ae6-41c4-8d68-9dba39256471)
+![Account page](https://github.com/user-attachments/assets/c5274d2b-c515-44af-8f65-606ce813e54a)
+![post an add page](https://github.com/user-attachments/assets/9410208e-64b5-4ee5-91a3-6ca11ba4fb5d)
+![my chat page](https://github.com/user-attachments/assets/b5680729-8de7-467b-b38c-42575bf07203)
 # React-Native-Application
 # 📱 Ikman.lk Clone App (React Native + Expo)
 
