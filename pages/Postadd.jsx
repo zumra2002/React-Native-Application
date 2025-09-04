@@ -12,11 +12,11 @@ import BottomNav from "@/components/BottomNav"; // ✅ Import BottomNav
 
 export default function Postadd() {
   const categories = [
-    { name: "Cars", icon: "car-outline", color: "#4CAF50" },
+    { name: "Cars", icon: "car-outline", color: "#0a9d58" }, // ✅ Green updated
     { name: "Motorbikes", icon: "bicycle-outline", color: "#E91E63" },
     { name: "Mobile Phones", icon: "phone-portrait-outline", color: "#2196F3" },
     { name: "Property", icon: "home-outline", color: "#FF5722" },
-    { name: "Home & Garden", icon: "flower-outline", color: "#009688" },
+    { name: "Home & Garden", icon: "flower-outline", color: "#0a9d58" }, // ✅ Green updated
     { name: "Jobs", icon: "briefcase-outline", color: "#3F51B5" },
   ];
 
@@ -71,7 +71,7 @@ export default function Postadd() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#009688",
+    backgroundColor: "#0a9d58", // ✅ Updated to ikman.lk green
     paddingVertical: 15,
     paddingHorizontal: 20,
   },
