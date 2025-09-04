@@ -9,7 +9,7 @@ export default function Account() {
       {/* Header */}
       <View
         style={{
-          backgroundColor: "#0a9d58", // ✅ Only header green
+          backgroundColor: "#0a9d58", // Header green
           paddingVertical: 15,
           paddingHorizontal: 16,
           flexDirection: "row",
@@ -20,25 +20,33 @@ export default function Account() {
         <Text style={{ color: "#fff", fontSize: 18, fontWeight: "bold" }}>
           Account
         </Text>
-        <Icon name="settings-outline" size={22} color="#fff" />
+        <Icon name="settings" size={22} color="#fff" /> {/* Filled settings icon */}
       </View>
 
-      {/* Content */}
-      <ScrollView style={{ flex: 1, padding: 10 }}>
-        <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
+      {/* Grey Box with Name */}
+      <View
+        style={{
+          backgroundColor: "#f0f0f0", // Grey box
+          padding: 15,
+          margin: 10,
+          borderRadius: 8,
+        }}
+      >
+        <Text style={{ fontSize: 16, fontWeight: "bold", color: "#000", marginBottom: 10 }}>
           Shehar Mavitha
         </Text>
 
+        {/* Account Options in the Grey Box */}
         {[
-          { icon: "pricetag-outline", label: "My Ads" },
-          { icon: "storefront-outline", label: "My membership" },
-          { icon: "star-outline", label: "Favorites" },
-          { icon: "bookmark-outline", label: "Saved searches" },
-          { icon: "call-outline", label: "Phone Numbers" },
-          { icon: "person-outline", label: "My Profile" },
-          { icon: "shield-checkmark-outline", label: "Stay safe" },
-          { icon: "help-circle-outline", label: "FAQ" },
-          { icon: "cash-outline", label: "How to sell fast?" },
+          { icon: "pricetag", label: "My Ads" },
+          { icon: "storefront", label: "My membership" },
+          { icon: "star", label: "Favorites" },
+          { icon: "bookmark", label: "Saved searches" },
+          { icon: "call", label: "Phone Numbers" },
+          { icon: "person", label: "My Profile" },
+          { icon: "shield-checkmark", label: "Stay safe" },
+          { icon: "help-circle", label: "FAQ" },
+          { icon: "cash", label: "How to sell fast?" },
           { icon: "ellipsis-horizontal", label: "More" },
         ].map((item, index) => (
           <TouchableOpacity
@@ -47,37 +55,38 @@ export default function Account() {
               flexDirection: "row",
               alignItems: "center",
               paddingVertical: 12,
-              borderBottomWidth: 1,
-              borderBottomColor: "#eee",
+              borderBottomWidth: index !== 9 ? 1 : 0, // No border for last item
+              borderBottomColor: "#ccc",
             }}
           >
             <Icon
               name={item.icon}
               size={20}
-              color="#555" // Default icon color
+              color="#808080" // Grey icon
               style={{ marginRight: 10 }}
             />
-            <Text style={{ fontSize: 15, color: "#333" }}>{item.label}</Text>
+            <Text style={{ fontSize: 15, color: "#000" }}>{item.label}</Text> {/* Black text */}
           </TouchableOpacity>
         ))}
+      </View>
 
-        {/* Logout */}
-        <TouchableOpacity
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            paddingVertical: 12,
-          }}
-        >
-          <Icon
-            name="power-outline"
-            size={20}
-            color="#555" // Default logout icon color
-            style={{ marginRight: 10 }}
-          />
-          <Text style={{ fontSize: 15, color: "#333" }}>Log out</Text>
-        </TouchableOpacity>
-      </ScrollView>
+      {/* Logout */}
+      <TouchableOpacity
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          paddingVertical: 12,
+          paddingHorizontal: 15,
+        }}
+      >
+        <Icon
+          name="power"
+          size={20}
+          color="#000" // Black logout icon
+          style={{ marginRight: 10 }}
+        />
+        <Text style={{ fontSize: 15, color: "#000" }}>Log out</Text>
+      </TouchableOpacity>
 
       {/* Bottom Navigation */}
       <BottomNav />
