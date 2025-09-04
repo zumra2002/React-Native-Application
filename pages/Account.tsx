@@ -33,7 +33,7 @@ export default function Account() {
         }}
       >
         <Text style={{ fontSize: 16, fontWeight: "bold", color: "#000", marginBottom: 10 }}>
-          Shehar Mavitha
+          Zumra Ahlam
         </Text>
 
         {/* Account Options in the Grey Box */}
